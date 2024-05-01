@@ -7,9 +7,9 @@ Kelas: Pemrograman Lanjut B<br>
 ### Reflection
 1. What are the key differences between unary, server streaming, and bi-directional streaming RPC (Remote Procedure Call) methods, and in what scenarios would each be most suitable?<br>
 **Jawab**
-a. Unary: Klien mengirimkan satu permintaan ke server dan menunggu sampai server mengembalikan respons tersebut. Unary cocok digunakan ketika klien hanya membutuhkan satu respons dari server seperti mengambil satu item dari database, mengautentikasi pengguna, atau melakukan perhitungan dan mendapatkan hasilnya.<br>
-b. Server Streaming: Klien mengirimkan permintaan ke server dan server mengirimkan beberapa respons berkelanjutan kepada klien. Server Streaming cocok digunakan ketika server perlu mengirimkan sejumlah data yang cukup besar kepada klien, seperti *real-time updates* harga pasar saham, *update* cuaca, *news feeds*, atau mengirim file besar dalam beberapa bagian.<br>
-c. Bi-directional: Klien dan server dapat mengirim banyak pesan satu sama lain secara terus menerus. Bi-directional cocok digunakan dalam skenario di mana terdapat kebutuhan akan komunikasi interaktif yang berkelanjutan. Misalnya, dalam aplikasi chat, Bi-directional dapat digunakan untuk mengirim dan menerima pesan secara *real-time* antara klien dan server.<br>
+* Unary: Klien mengirimkan satu permintaan ke server dan menunggu sampai server mengembalikan respons tersebut. Unary cocok digunakan ketika klien hanya membutuhkan satu respons dari server seperti mengambil satu item dari database, mengautentikasi pengguna, atau melakukan perhitungan dan mendapatkan hasilnya.<br>
+* Server Streaming: Klien mengirimkan permintaan ke server dan server mengirimkan beberapa respons berkelanjutan kepada klien. Server Streaming cocok digunakan ketika server perlu mengirimkan sejumlah data yang cukup besar kepada klien, seperti *real-time updates* harga pasar saham, *update* cuaca, *news feeds*, atau mengirim file besar dalam beberapa bagian.<br>
+* Bi-directional: Klien dan server dapat mengirim banyak pesan satu sama lain secara terus menerus. Bi-directional cocok digunakan dalam skenario di mana terdapat kebutuhan akan komunikasi interaktif yang berkelanjutan. Misalnya, dalam aplikasi chat, Bi-directional dapat digunakan untuk mengirim dan menerima pesan secara *real-time* antara klien dan server.<br>
 
 2. What are the potential security considerations involved in implementing a gRPC service in Rust, particularly regarding authentication, authorization, and data encryption?<br>
 **Jawab**
@@ -19,11 +19,11 @@ Beberapa pertimbangan keamanan saat mengimplementasikan gRPC di Rust yaitu:
 * Enkripsi data: Melindungi kerahasiaan data yang dikirim antara klien dan server. gRPC secara default menggunakan HTTP/2, yang mendukung enkripsi TLS/SSL untuk melindungi data yang dikirim melalui jaringan.
 
 3. What are the potential challenges or issues that may arise when handling bidirectional streaming in Rust gRPC, especially in scenarios like chat applications?<br>
-**Jawab**
+**Jawab**<br>
 Menurut saya, sinkronisasi data adalah salah satu tantangan atau masalah saat menggunakan bidirectional streaming. Menjaga agar data tetap sinkron antara klien dan server adalah sebuah tantangan khususnya dalam situasi *real-time* seperti aplikasi chat. Misalnya, memastikan bahwa pesan diterima dan ditampilkan dalam urutan yang benar.
 
 4. What are the advantages and disadvantages of using the `tokio_stream::wrappers::ReceiverStream` for streaming responses in Rust gRPC services?<br>
-**Jawab**
+**Jawab**<br>
 **Kelebihan**:
 * Menyediakan *interface* yang sederhana dan mudah digunakan untuk mengonversi `tokio::sync::mpsc::Receiver` menjadi `Stream`. 
 * Fleksibel dalam menghasilkan data streaming.
