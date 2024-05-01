@@ -12,7 +12,7 @@ Kelas: Pemrograman Lanjut B<br>
 * Bi-directional: Klien dan server dapat mengirim banyak pesan satu sama lain secara terus menerus. Bi-directional cocok digunakan dalam skenario di mana terdapat kebutuhan akan komunikasi interaktif yang berkelanjutan. Misalnya, dalam aplikasi chat, Bi-directional dapat digunakan untuk mengirim dan menerima pesan secara *real-time* antara klien dan server.<br>
 
 2. What are the potential security considerations involved in implementing a gRPC service in Rust, particularly regarding authentication, authorization, and data encryption?<br>
-**Jawab**
+**Jawab**<br>
 Beberapa pertimbangan keamanan saat mengimplementasikan gRPC di Rust yaitu:
 * Autentikasi: Memastikan bahwa klien diautentikasi secara sah. Middleware yang dapat digunakan untuk autentikasi antara lain JWT atau OAuth2.
 * Otorisasi: Memastikan bahwa klien hanya memiliki akses yang sesuai dengan wewenangnya. 
@@ -26,7 +26,7 @@ Menurut saya, sinkronisasi data adalah salah satu tantangan atau masalah saat me
 **Jawab**<br>
 **Kelebihan**:
 * Menyediakan *interface* yang sederhana dan mudah digunakan untuk mengonversi `tokio::sync::mpsc::Receiver` menjadi `Stream`. 
-* Fleksibel dalam menghasilkan data streaming.
+* Fleksibel dalam menghasilkan data streaming.<br>
 **Kekurangan**:
 * Bukan solusi yang paling efisien dari segi kinerja. Penggunaan MPSC dapat menyebabkan overhead komunikasi tambahan, terutama jika data streaming yang dihasilkan sangat besar.
 
